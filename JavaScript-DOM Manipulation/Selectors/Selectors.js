@@ -13,6 +13,9 @@ console.log(a)
 var b = document.getElementsByClassName('Hero')
 console.log(b)
 
+var b1 = document.getElementsByClassName('Hero')
+console.log(b1)
+
 // getElementById() :
 
 var c = document.getElementById('Dwayne')
