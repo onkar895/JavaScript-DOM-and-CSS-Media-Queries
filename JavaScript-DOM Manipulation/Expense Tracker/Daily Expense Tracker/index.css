@@ -1,60 +1,150 @@
 body {
-    font-family: ubuntu;
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    background-color: #f3f4f6;
 }
+
+.Container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.ExpenseForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        width: 50%;
+    }
+}
+
 .container {
     max-width: 600px;
-    margin: 4rem auto;
-    padding: 20px;
-    background-color: #fdfcfc;
+    padding: 40px 30px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-    transition: 0.5s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s;
+}
+
+.container:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
 input[type="text"],
 select,
 input[type="number"],
 input[type="submit"] {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 100%;
-    font-family: ubuntu;
-    padding: 8px;
+    font-family: "Ubuntu", sans-serif;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    transition: border-color 0.5s;
+}
+
+input[type="text"]:focus,
+select:focus,
+input[type="number"]:focus {
+    border-color: #e7085a;
 }
 
 input[type="submit"] {
     background-color: #e7085a;
     color: white;
-    font-weight: bolder;
+    font-weight: bold;
     border: none;
     cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.5s;
 }
 
 input[type="submit"]:hover {
-    background-color: #fc035f;
+    background-color: #8c2148;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 .remove-btn {
     border: none;
-    margin-left: 30px;
+    background: none;
     cursor: pointer;
+    color: #e7085a;
+    font-size: 16px;
+    transition: color 0.3s;
+    border: none;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: #8c2148;
 }
 
 th,
 td {
     border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    padding: 10px;
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+}
+
+td {
+    font-size: 14px;
 }
 
 th {
     background-color: #e7085a;
     color: white;
+}
+
+.Animation {
+    display: none;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f3f4f6;
+
+    @media (min-width: 1024px) {
+        display: flex;
+        width: 50%;
+    }
+}
+
+.Ball {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-image: linear-gradient(to top right, #e7085a, #8c2148);
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+.Design {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    backdrop-filter: blur(20px);
 }

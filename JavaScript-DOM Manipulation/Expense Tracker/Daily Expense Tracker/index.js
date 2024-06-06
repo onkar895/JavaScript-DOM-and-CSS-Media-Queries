@@ -12,24 +12,20 @@ expenseForm.addEventListener('submit', function (event) {
     const newRow = document.createElement('tr')
 
     newRow.innerHTML = `<td>${description}</td>
-                   <td>${category}</td>
-                   <td>${amount}</td>
-                   <td><button class="remove-btn">❌</button></td>`
-
-    newRow.style.fontFamily = 'ubuntu'
-    newRow.style.fontSize = '14px'
-    newRow.style.fontWeight = 'bold'
-
-    expenseList.appendChild(newRow)
+                            <td>${category}</td>
+                            <td>${amount}</td>
+                            <td><button class="remove-btn">❌</button></td>`
 
     newRow.querySelector('.remove-btn').addEventListener('click', function () {
-      newRow.innerHTML = ''
+      expenseList.removeChild(newRow)
     })
+
+    expenseList.appendChild(newRow)
 
     document.getElementById('description').value = ''
     document.getElementById('category').value = ''
     document.getElementById('amount').value = ''
   } else {
-    alert('Please fill out all fields with valid Data')
+    alert('Please fill out all fields with valid data')
   }
 })
